@@ -48,7 +48,8 @@ ninja.wallets.splitwallet = {
 		try {
 			var numshares = parseInt(document.getElementById('splitshares').value);
 			var threshold = parseInt(document.getElementById('splitthreshold').value);
-			var key = new Bitcoin.ECKey(false);
+			var optionalprivate = document.getElementById('splitoptionalprivate').value;
+			var key = new Bitcoin.ECKey(optionalprivate || false);
 			var bitcoinAddress = key.getBitcoinAddress();
 			var shares = ninja.wallets.splitwallet.getFormattedShares(key.getBitcoinHexFormat(), numshares, threshold);
 
